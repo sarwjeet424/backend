@@ -62,7 +62,6 @@ router.post("/test-post-3", function(req, res) {
 })
 
 
-
 router.post("/test-post-4", function(req, res) {
     let arr= [ 12, "functionup"]
     let ele= req.body.element
@@ -70,4 +69,32 @@ router.post("/test-post-4", function(req, res) {
     res.send(  { msg: arr , status: true }  )
 })
 
+
+let players =[
+                {
+                        "name": "manish",
+                        "dob": "1/1/1995",
+                        "gender": "male",
+                        "city": "jalandhar",
+                        "sports": [
+                            "swimming"
+                        ]
+                    }
+                ]
+
+router.post('/players', function (req, res) {
+    let result=req.body
+  for(let b=0;b<result.length;b++){
+    let count=0
+    for(let a=0;a<players.length;a++){
+        if(result[b].name==players[a].name){
+            count++  
+        }
+    }
+    if(count==0){
+        players.push(result[b])
+    }
+  }
+    res.send( { data: players , status: true })
+})
 module.exports = router;
