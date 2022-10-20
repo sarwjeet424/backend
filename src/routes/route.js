@@ -70,4 +70,48 @@ router.post("/test-post-4", function(req, res) {
     res.send(  { msg: arr , status: true }  )
 })
 
+// let persons= [
+//     {
+//     name: "PK",
+//     age: 10,
+//     votingStatus: false
+//  },
+//  {
+//     name: "SK",
+//     age: 20,
+//     votingStatus: false
+//  },
+//  {
+//     name: "AA",
+//     age: 70,
+//     votingStatus: false
+//  },
+//  {
+//     name: "SC",
+//     age: 5,
+//     votingStatus: false
+//  },
+//  {
+//     name: "HO",
+//     age: 40,
+//     votingStatus: false
+//  }
+//  ]
+//  ....................today Assignment...........//
+
+router.post('/play',function (req,res){
+    let arr=[]
+    let obj=req.body.persons
+    let body=req.query.votingAge
+
+    for(let a=0;a<obj.length;a++){
+        if(obj[a].age>body){
+           obj[a].votingStatus=true
+           arr.push(obj[a])
+        }
+    }
+    console.log(arr)
+    res.send(arr)
+})
+
 module.exports = router;
