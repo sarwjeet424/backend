@@ -61,9 +61,6 @@ const totalSalesPerAuthor = async function (req, res) {
     res.send({ msg: allAuthorSales })
 }
 
-
-
-
 // CRUD OPERATIONS:
 // CREATE
 // READ
