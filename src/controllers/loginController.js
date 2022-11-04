@@ -8,7 +8,7 @@ const login = async function (req,res){
     if(fetchdata==null) res.send("doesn't match the emailId and password with userdata")
     
     console.log("login Successfully")
-    const myToken = jwt.sign({email:emailId},'passwordSignature')
+    const myToken = jwt.sign({id:fetchdata._id, email:emailId},'passwordSignature')
     res.send({staus:true,data:myToken})
 }
 
